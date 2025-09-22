@@ -11,7 +11,7 @@ function Projects({ project }) {
       viewport={{ once: true }}
     >
       <motion.h2
-        className="text-2xl font-bold text-center mb-12 text-gray-800"
+        className="text-4xl font-bold text-center mb-10 text-blue-700 "
         whileInView={{ opacity: 1, y: 0 }}
         initial={{ opacity: 0, y: -100 }}
         transition={{ duration: 0.5 }}
@@ -28,14 +28,44 @@ function Projects({ project }) {
             initial={{ opacity: 0, y: -100 }}
             transition={{ duration: 0.5 }}
           >
-            <img alt={project.name} className="w-full h-48 object-cover" />
+            {Array.isArray(project.image) ? (
+              <div className="flex overflow-x-auto gap-2 p-2 snap-x">
+                {project.image.map((imgSrc, index) => (
+                  <img
+                    key={index}
+                    src={imgSrc}
+                    alt=""
+                    className="w-72 h-88 object-contain flex-shrink-0 snap-center rounded-md shadow-sm"
+                  />
+                ))}
+              </div>
+            ) : (
+              <img
+                src={project.image}
+                className="w-full h-60 object-contain p-2"
+              />
+            )}
 
             <div className="p-6 text-center">
               <h3 className="text-xl font-semibold mb-2 text-gray-900">
                 {project.title}
               </h3>
-              <p className="text-md font-medium text-indigo-600 mb-2">
-                {project.github}
+              <p className="text-md font-medium text-neutral-800 mb-2">
+                {project.github ? (
+                  <>
+                    GitHub:{"  "}
+                    <a className="cursor-pointer text-indigo-950 hover:text-blue-700">
+                      {project.github}
+                    </a>
+                  </>
+                ) : (
+                  <>
+                    PlayStore:{"  "}
+                    <a className="cursor-pointer text-indigo-950 hover:text-blue-700">
+                      {project.playStore}
+                    </a>
+                  </>
+                )}
               </p>
               <p className="text-md text-gray-700 leading-relaxed">
                 {project.description}
