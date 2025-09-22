@@ -18,6 +18,18 @@ import { SiPostman } from "react-icons/si";
 import { SiMongodb } from "react-icons/si";
 import { SiMysql } from "react-icons/si";
 
+/*Image*/
+import payroll from "../assets/img/payroll_mgt.png";
+import socialMedia from "../assets/img/food_social_media.png";
+import radio_player_1 from "../assets/img/radio_player_1.jpg";
+import radio_player_2 from "../assets/img/radio_player_2.jpg";
+import radio_player_3 from "../assets/img/radio_player_3.jpg";
+import radio_player_4 from "../assets/img/radio_player_4.jpg";
+import deafAware_1 from "../assets/img/deafAware_1.jpg";
+import deafAware_2 from "../assets/img/deafAware_2.jpg";
+import deafAware_3 from "../assets/img/deafAware_3.jpg";
+import deafAware_4 from "../assets/img/deafAware_4.jpg";
+
 // 1. Homepage (Introduction Section)
 export const introSection = {
   name: "Buddhika Sadun",
@@ -64,7 +76,7 @@ export const aboutSection = {
       { name: "Figma", icon: <FiFigma className="text-7xl text-green-400" /> },
       {
         name: "Postman",
-        icon: <SiPostman className="text-7xl text-green-400" />,
+        icon: <SiPostman className="text-7xl text-orange-400" />,
       },
     ],
     Databases: [
@@ -89,6 +101,7 @@ export const aboutSection = {
 export const projectSection = [
   {
     title: "Staff Management System",
+    image: payroll,
     description:
       "A web application to manage staff details, calculate their salaries, and handle leave requests. Includes authenticated logins for users and administrators to ensure data privacy.",
     technologies: ["NodeJS", "ExpressJS", "MongoDB", "ReactJS"],
@@ -96,6 +109,7 @@ export const projectSection = [
   },
   {
     title: "Foodies Social Media Platform",
+    image: socialMedia,
     description:
       "A social media web application for users to share recipes and ingredients with friends interested in food. Integrated with OAuth2 authentication for better security.",
     technologies: ["Java", "Spring Boot", "ReactJS"],
@@ -104,6 +118,7 @@ export const projectSection = [
   },
   {
     title: "Safety and Alert System",
+    image: [deafAware_1, deafAware_2, deafAware_3, deafAware_4],
     description:
       "A convolutional neural network model designed to classify road, vehicle, and ambulance audio cues. Developed as a final year research project targeting deaf students. Includes a Python Flask web service for testing results in Postman.",
     technologies: ["Flask", "Librosa", "NumPy", "Keras"],
@@ -112,10 +127,11 @@ export const projectSection = [
   },
   {
     title: "Radio Player",
+    image: [radio_player_1, radio_player_2, radio_player_3, radio_player_4],
     description:
-      "A mobile application for a radio channel, allowing users to listen to live radio, explore programs, and follow social media links. Published as a beta version on Google Play.",
+      "A mobile application for a radio channel, allowing users to listen to live radio, explore programs, and follow social media links. Published on Google Play.",
     technologies: ["React Native", "NodeJS", "MongoDB", "Vercel"],
-    playStore: "Beta version on Google Play",
+    playStore: "https://play.google.com/store/search?q=sethfm&c=apps&hl=en-US",
   },
 ];
 
