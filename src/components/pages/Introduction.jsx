@@ -29,9 +29,7 @@ function Introduction({ intro }) {
         animate={{ opacity: 1 }}
         transition={{ duration: 1, delay: 0.6 }}
         className="max-w-3xl text-black-300 leading-relaxed text-lg mb-8"
-      >
-        {intro.brief}
-      </motion.p>
+      ></motion.p>
 
       {/* Call To Action Buttons */}
       <motion.div
