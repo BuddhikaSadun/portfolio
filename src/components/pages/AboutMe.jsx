@@ -12,17 +12,20 @@ function AboutMe() {
       </h1>
       {/* Personal Background */}
       <div className="w-full text-gray-700 leading-relaxed">
-        <p className="mb-10 text-start text-lg">
-          I am Buddhika Sadun, a graduate in BSc (Hons) in Information
-          Technology at SLIIT. I completed my six-month internship as a Full
-          Stack Developer Intern at{" "}
-          <span className="font-medium">Eyerax Technologies</span>.
-          <p className="gap-4 text-start">
-            I have contributed to real-world projects.I am passionate about
-            learning new technologies to solve complex problems and deliver
-            high-quality solutions that create value for clients.
-          </p>
+        <p className="mb-6 text-start text-lg">
+          I am <span className="font-semibold">Buddhika Sadun</span>, a graduate
+          in BSc (Hons) in Information Technology at{" "}
+          <span className="font-medium">SLIIT</span>. I completed my six-month
+          internship as a{" "}
+          <span className="font-medium">Full Stack Developer Intern</span>
+          at Eyerax Technologies.
         </p>
+
+        <div className="text-start text-lg">
+          I have contributed to real-world projects and I am passionate about
+          learning new technologies to solve complex problems while delivering
+          high-quality solutions that create value for clients.
+        </div>
       </div>
 
       {/* Soft Skills */}
