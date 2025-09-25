@@ -1,5 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { FaGithub } from "react-icons/fa";
+import { FaGooglePlay } from "react-icons/fa";
 
 function Projects({ project }) {
   return (
@@ -50,18 +52,23 @@ function Projects({ project }) {
               <h3 className="text-xl font-semibold mb-2 text-gray-900">
                 {project.title}
               </h3>
-              <p className="text-md font-medium text-neutral-800 mb-2">
+              <p className="flex flex-col  items-center text-md font-medium text-neutral-800 mb-2 py-4">
                 {project.github ? (
                   <>
-                    GitHub:{"  "}
-                    <a className="cursor-pointer text-indigo-950 hover:text-blue-700">
-                      {project.github}
+                    <a
+                      href={project.github}
+                      className="cursor-pointer text-indigo-950 hover:text-blue-700 justify-center"
+                    >
+                      <FaGithub size={50} />
                     </a>
                   </>
                 ) : (
                   <>
                     PlayStore:{"  "}
-                    <a className="cursor-pointer text-indigo-950 hover:text-blue-700">
+                    <a
+                      href={project.playStore}
+                      className="cursor-pointer text-indigo-950 hover:text-blue-700"
+                    >
                       {project.playStore}
                     </a>
                   </>
