@@ -37,7 +37,7 @@ function Projects({ project }) {
                     key={index}
                     src={imgSrc}
                     alt=""
-                    className="w-72 h-88 object-contain flex-shrink-0 snap-center rounded-md shadow-sm"
+                    className="w-45 h-88 object-contain flex-shrink-0 snap-center rounded-md shadow-sm"
                   />
                 ))}
               </div>
@@ -49,7 +49,7 @@ function Projects({ project }) {
             )}
 
             <div className="p-6 text-center">
-              <h3 className="text-xl font-semibold mb-2 text-gray-900">
+              <h3 className="text-2xl font-semibold mb-2 text-gray-900">
                 {project.title}
               </h3>
               <p className="flex flex-col  items-center text-md font-medium text-neutral-800 mb-2 py-4">
@@ -59,17 +59,16 @@ function Projects({ project }) {
                       href={project.github}
                       className="cursor-pointer text-indigo-950 hover:text-blue-700 justify-center"
                     >
-                      <FaGithub size={50} />
+                      <FaGithub size={40} />
                     </a>
                   </>
                 ) : (
                   <>
-                    PlayStore:{"  "}
                     <a
                       href={project.playStore}
                       className="cursor-pointer text-indigo-950 hover:text-blue-700"
                     >
-                      {project.playStore}
+                      <FaGooglePlay size={35} />
                     </a>
                   </>
                 )}
@@ -77,8 +76,10 @@ function Projects({ project }) {
               <p className="text-md text-gray-700 leading-relaxed">
                 {project.description}
               </p>
-
-              <div className="pt-10 flex flex-wrap justify-center gap-2">
+              <h2 className="mt-10 text-xl font-semibold text-neutral-900">
+                Used Technologies
+              </h2>
+              <div className="pt-5 flex flex-wrap justify-center gap-2">
                 {project.technologies?.map((tag, idx) => (
                   <span
                     key={idx}

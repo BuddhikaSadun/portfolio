@@ -1,4 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
+import emailjs from "@emailjs/browser";
+import Swal from "sweetalert2";
 import { motion } from "framer-motion";
 
 function ContactMe() {
@@ -9,7 +11,8 @@ function ContactMe() {
   });
 
   const [errors, setErrors] = useState({});
-  const [submitted, setSubmitted] = useState(false);
+  // ref for the form (needed for EmailJS)
+  const formRef = useRef();
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -30,16 +33,47 @@ function ContactMe() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
     const validationErrors = validate();
     if (Object.keys(validationErrors).length > 0) {
       setErrors(validationErrors);
       return;
     }
 
-    console.log("Form submitted:", formData);
-    setSubmitted(true);
-    setFormData({ name: "", email: "", message: "" });
+    // send email using EmailJS
+    emailjs
+      .sendForm(
+        "service_2gngr0l", // replace with your Service ID
+        "template_p0hva46", // replace with your Template ID
+        formRef.current, // form reference
+        "J9Jq_LyPg4aM9KwJ1" // replace with your Public Key
+      )
+      .then(
+        (result) => {
+          console.log("Email successfully sent!", result.text);
+
+          Swal.fire({
+            title: "Message Sent!",
+            text: "Thank you for contacting me.",
+            icon: "success",
+            confirmButtonColor: "#2563eb",
+          });
+
+          setFormData({ name: "", email: "", message: "" });
+        },
+        (error) => {
+          console.error("Error sending email:", error.text);
+
+          Swal.fire({
+            title: "Oops!",
+            text: "Something went wrong. Please try again later.",
+            icon: "error",
+            confirmButtonColor: "#ef4444",
+          });
+        }
+      );
   };
+
   return (
     <section className="min-h-screen flex justify-center items-center px-6 py-10 bg-gradient-to-b from-sky-50 to-sky-100">
       {/* Form Container */}
@@ -49,32 +83,13 @@ function ContactMe() {
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
       >
-        <h2 className="text-3xl font-bold text-gray-800 mb-6 text-center">
+        <h2 className="text-4xl font-bold text-center mb-10 text-blue-700 mt-10">
           Contact Me
         </h2>
 
         <form
-          onSubmit={(e) => {
-            e.preventDefault();
-            const validationErrors = validate();
-            if (Object.keys(validationErrors).length > 0) {
-              setErrors(validationErrors);
-              return;
-            }
-
-            setSubmitted(true);
-
-            // SweetAlert Success Message
-            Swal.fire({
-              title: "Message Sent!",
-              text: "Thank you for contacting me.",
-              icon: "success",
-              confirmButtonColor: "#2563eb",
-            });
-
-            // Reset form
-            setFormData({ name: "", email: "", message: "" });
-          }}
+          ref={formRef}
+          onSubmit={handleSubmit}
           noValidate
           className="space-y-5"
         >
