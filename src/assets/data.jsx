@@ -29,10 +29,12 @@ import deafAware_1 from "../assets/img/deafAware_1.jpg";
 import deafAware_2 from "../assets/img/deafAware_2.jpg";
 import deafAware_3 from "../assets/img/deafAware_3.jpg";
 import deafAware_4 from "../assets/img/deafAware_4.jpg";
+import profilePicture from "../assets/img/Profile.jpg";
 
 // 1. Homepage (Introduction Section)
 export const introSection = {
   name: "Buddhika Sadun",
+  image: profilePicture,
   title: "Full Stack Developer | Mobile Developer | AI Enthusiast",
   brief:
     "I am an Undergraduate in Information Technology at SLIIT campus. I am passionate about crafting impactful digital solutions.",
@@ -56,7 +58,7 @@ export const aboutSection = {
       },
       {
         name: "React Native",
-        icon: <TbBrandReactNative className="text-7xl text-cyan-400" />,
+        icon: <TbBrandReactNative className="text-7xl text-cyan-400 ml-2" />,
       },
       {
         name: "Node.js",

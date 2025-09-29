@@ -23,10 +23,10 @@ function App() {
       <section id="Home">
         <Introduction intro={introSection} />
       </section>
-      <section id="about">
+      <section id="about" className="scroll-mt-20">
         <AboutMe about={aboutSection} />
       </section>
-      <section id="projects">
+      <section id="projects" className="scroll-mt-12">
         <Projects project={projectSection} />
       </section>
       <section id="contactUs">
