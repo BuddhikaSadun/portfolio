@@ -27,12 +27,12 @@ function NavBar() {
   }, []);
 
   return (
-    <nav className="fixed top-0 right-5  w-full z-50 bg-blue-300 border-b border-gray-300">
+    <nav className="fixed top-0 h-20 w-full z-50  bg-[radial-gradient(100%_50%_at_50%_0%,rgba(0,163,255,0.13)_0,rgba(0,163,255,0)_120%,rgba(0,163,255,0)_100%)] border-gray-300">
       {/*" bg-blue-300 border-b border-gray-300 sticky top-0 z-50"*/}
 
       <div className="flex justify-between items-center px-8 py-3">
         {/* Left Side - Name/Logo */}
-        <span className="text-2xl font-bold text-blue-600">Portfolio</span>
+        <span className="text-4xl font-bold text-blue-600">Portfolio</span>
         <ul className="flex gap-30 list-none">
           {[
             { href: "#Home", label: "Home" },
@@ -45,7 +45,7 @@ function NavBar() {
               <li key={index}>
                 <a
                   href={item.href}
-                  className={`relative text-xl font-medium 
+                  className={`relative text-2xl font-medium 
                     ${isActive ? "text-blue-600" : "text-black"}
                     ${
                       !isActive
